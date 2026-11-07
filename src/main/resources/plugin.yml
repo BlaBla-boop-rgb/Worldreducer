@@ -1,0 +1,18 @@
+name: WorldTrim
+version: '${project.version}'
+main: de.syntaxium.worldtrim.WorldTrimPlugin
+api-version: '1.21'
+# STARTUP: Das Plugin startet, BEVOR die Welten geladen werden.
+# Nur so kann es die Region-Dateien der Hauptwelt sicher bearbeiten.
+load: STARTUP
+description: Löscht ungenutzte Chunks (geringe Aufenthaltszeit), um Speicherplatz zu sparen.
+commands:
+  worldtrim:
+    description: Ungenutzte Chunks analysieren und löschen
+    usage: /worldtrim <analyse|schedule|cancel|status|reload>
+    aliases: [wtrim]
+    permission: worldtrim.admin
+permissions:
+  worldtrim.admin:
+    description: Zugriff auf /worldtrim
+    default: op

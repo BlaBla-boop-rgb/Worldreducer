@@ -1,0 +1,33 @@
+# ============================================================
+#  WorldTrim – löscht Chunks, in denen sich kaum jemand aufgehalten hat
+# ============================================================
+#  Ablauf:
+#   1. /worldtrim analyse   -> zeigt, wie viel Platz frei würde (ändert nichts)
+#   2. BACKUP MACHEN!
+#   3. /worldtrim schedule  -> beim nächsten Neustart wird aufgeräumt
+#   4. Server neu starten
+#
+#  Gelöschte Chunks werden beim nächsten Besuch einfach neu generiert.
+# ============================================================
+
+# Chunks, in denen sich Spieler insgesamt KÜRZER als diese Zeit
+# (in Minuten) aufgehalten haben, werden gelöscht.
+# 5 = sehr vorsichtig, nur reine "Durchflug"-Chunks.
+min-inhabited-minutes: 5
+
+# Chunks in diesem Bereich werden NIE gelöscht, egal wie die Aufenthaltszeit ist.
+# Angaben in Block-Koordinaten. radius: 0 = kein Schutzbereich.
+# Gilt in jeder Dimension mit den dortigen Koordinaten.
+protect:
+  center-x: 0
+  center-z: 0
+  radius: 1000
+
+# Welche Welten bereinigt werden (Ordnernamen im Server-Verzeichnis).
+worlds:
+  - craftattack-11
+  - craftattack-11_nether
+  - craftattack-11_the_end
+
+# Auch die Ordner "entities" und "poi" mit bereinigen (empfohlen).
+include-entities-and-poi: true
